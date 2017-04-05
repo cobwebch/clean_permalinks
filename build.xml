@@ -1,0 +1,15 @@
+<project name="clean_permalinks" default="build" basedir=".">
+    <property name="output" location="${basedir}/build/"/>
+    <property file="build.properties" />
+
+    <target name="unit-tests">
+        <exec executable="php" failonerror="true">
+            <arg path="${typo3root}/typo3/cli_dispatch.phpsh" />
+            <arg value="phpunit" />
+            <arg path="${projectRoot}/Tests/" />
+        </exec>
+    </target>
+
+    <target name="build" depends="unit-tests">
+    </target>
+</project>
